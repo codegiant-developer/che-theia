@@ -151,6 +151,7 @@ export class ChePluginView extends PluginWidget {
      */
     protected onFilterChanged(filter: string): void {
         this.filterString = filter;
+        this.update();
 
         if (this.status === 'filtering') {
             this.filter();
