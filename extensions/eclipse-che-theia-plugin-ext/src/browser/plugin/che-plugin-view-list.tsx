@@ -8,57 +8,57 @@
  * SPDX-License-Identifier: EPL-2.0
  ***********************************************************************/
 
- import * as React from 'react';
- import { ChePlugin, ChePluginManager, ChePluginStatus } from './che-plugin-manager';
- import { ChePluginMetadata } from '@eclipse-che/theia-remote-api/lib/common/plugin-service';
- import { AutoSizer, List, ListRowRenderer } from '@theia/core/shared/react-virtualized';
- 
- interface ListProps {
-     pluginManager: ChePluginManager;
-     plugins: ChePlugin[];
-     highlighters: string[];
- }
- 
- interface ListState {
- }
- 
- export class ChePluginViewList extends React.Component<ListProps, ListState> {
- 
-     constructor(props: ListProps) {
-         super(props);
-     }
- 
-     protected renderRow: ListRowRenderer = ({ index, key, style }) => {
-         const plugin = this.props.plugins[index];
-         
-         return (
-             <div key={key} style={style}>
-                 <ChePluginListItem
-                     key={plugin.publisher + '/' + plugin.name}
-                     pluginItem={plugin}
-                     pluginManager={this.props.pluginManager}
-                     highlighters={this.props.highlighters} />
-             </div>
-         );
-     };
- 
-     render(): React.ReactNode {
-         return <div className='che-plugin-list'>
-             <AutoSizer>
-                 {
-                     ({ width, height }) => <List
-                             width={width}
-                             height={height}
-                             rowHeight={104}
-                             rowCount={this.props.plugins.length}
-                             rowRenderer={this.renderRow}
-                         />
-                 }
-             </AutoSizer>
-         </div>;
-     }
+import * as React from 'react';
+import { ChePlugin, ChePluginManager, ChePluginStatus } from './che-plugin-manager';
+import { ChePluginMetadata } from '@eclipse-che/theia-remote-api/lib/common/plugin-service';
+import { AutoSizer, List, ListRowRenderer } from '@theia/core/shared/react-virtualized';
 
- }
+interface ListProps {
+    pluginManager: ChePluginManager;
+    plugins: ChePlugin[];
+    highlighters: string[];
+}
+
+interface ListState {
+}
+
+export class ChePluginViewList extends React.Component<ListProps, ListState> {
+
+    constructor(props: ListProps) {
+        super(props);
+    }
+
+    protected renderRow: ListRowRenderer = ({ index, key, style }) => {
+        const plugin = this.props.plugins[index];
+        
+        return (
+            <div key={key} style={style}>
+                <ChePluginListItem
+                    key={plugin.publisher + '/' + plugin.name}
+                    pluginItem={plugin}
+                    pluginManager={this.props.pluginManager}
+                    highlighters={this.props.highlighters} />
+            </div>
+        );
+    };
+
+    render(): React.ReactNode {
+        return <div className='che-plugin-list'>
+            <AutoSizer>
+                {
+                    ({ width, height }) => <List
+                            width={width}
+                            height={height}
+                            rowHeight={104}
+                            rowCount={this.props.plugins.length}
+                            rowRenderer={this.renderRow}
+                        />
+                }
+            </AutoSizer>
+        </div>;
+    }
+
+}
 
 interface ListItemProps {
     pluginManager: ChePluginManager;
