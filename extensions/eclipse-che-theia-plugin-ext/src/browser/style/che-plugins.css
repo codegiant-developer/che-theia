@@ -100,6 +100,7 @@
 .che-plugin-list {
     position: relative;
     width: 100%;
+    height: 100%;
     box-sizing: border-box;
     overflow-y: auto;
     min-width: 250px !important;
