@@ -161,8 +161,8 @@
 }
 
 .che-plugin-list .che-plugin-title {
-    height: 20px;
-    line-height: 20px;
+    height: 25px;
+    line-height: 25px;
     position: absolute;
     left: 0px;
     top: 7px;
@@ -186,7 +186,7 @@
 
 .che-plugin-list .che-plugin-version {
     color: var(--theia-dropdown-listBackground);
-    height: 20px;
+    height: 25px;
     background-color: transparent;
     border-color: transparent;
     text-align-last: right;
